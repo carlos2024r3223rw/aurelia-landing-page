@@ -1,98 +1,55 @@
-# AURELIA — Landing Page de Conversión
+# Aurelia — Landing Page de Alta Conversión
 
-Landing page diseñada 100% para **convertir visitantes en compradores o suscriptores**. Optimizada para velocidad, mobile-first y con psicología de ventas integrada en cada sección.
-
----
-
-## 🎯 Enfoque de Conversión
-
-Esta no es una página bonita sin propósito. Cada elemento está pensado para una cosa: **que el usuario compre o deje su correo**.
-
-| Elemento | Propósito |
-|---|---|
-| **Barra de urgencia** | Crear sensación de escasez con countdown en tiempo real |
-| **Prueba social en hero** | +12,400 clientas y rating 4.9/5 generan confianza inmediata |
-| **CTAs enormes con animación** | Botones imposibles de ignorar con efecto "pulse" dorado |
-| **Stock decreciente** | "Solo quedan X unidades" disminuye en tiempo real |
-| **Sticky CTA en móvil** | Botón flotante permanente en pantallas pequeñas |
-| **Reseñas verificadas** | 6 testimonios con badge de compra verificada |
-| **FAQ accordion** | Elimina objeciones antes de que el usuario se vaya |
-| **Captura de email** | Sección secundaria con incentivo (guía gratis + 25% OFF) |
-| **Logos de pago** | Visa, Mastercard, PayPal en la card de compra y footer |
+Una landing page moderna, ultrarrápida y optimizada para **conversión directa** (ventas y captura de leads). Diseñada bajo un enfoque *Mobile-First*, con microinteracciones sutiles, prueba social visible y una jerarquía clara enfocada en los botones de llamada a la acción (CTAs).
 
 ---
 
-## 📂 Estructura del Proyecto
+## 🚀 Características Principales
+
+- **⚡ Carga Ultrarrápida:** Construida con HTML5, CSS3 y Vanilla JavaScript sin dependencias ni frameworks pesados.
+- **📱 Enfoque Mobile-First:** Diseñada priorizando la experiencia en dispositivos móviles (smartphones y tablets).
+- **🔥 Psicología de Ventas & Conversión:**
+  - Barra superior de urgencia con temporizador en tiempo real (*Countdown Timer*).
+  - Botones de acción principales (CTAs) destacados con animaciones de pulso.
+  - Botón de compra flotante (*Sticky CTA*) automático en dispositivos móviles.
+  - Indicador de stock limitado con actualización dinámica.
+- **🛡️ Prueba Social y Confianza:**
+  - Calificación destacada y contador de clientas satisfechas.
+  - Sección de reseñas de compradoras verificadas.
+  - Módulo interactivo de preguntas frecuentes (FAQ Accordion).
+  - Distintivos de garantía y logos de métodos de pago seguros (Visa, Mastercard, PayPal).
+- **📩 Captura de Leads:** Formulario integrado para suscripción y cupón de descuento.
+
+---
+
+## 📂 Estructura del Código
 
 ```
-prueba landing page/
-├── landing page.html    → Estructura HTML semántica
-├── style.css            → Estilos (Mobile-First, CSS Variables)
-├── script.js            → Lógica ligera (0 dependencias)
-└── README.md            → Este archivo
-```
-
----
-
-## ⚡ Performance
-
-- **0 frameworks** — HTML, CSS y JavaScript puro
-- **0 librerías externas** — Solo Google Fonts (preconnect)
-- **~25 KB total** — Carga casi instantánea en cualquier red
-- **Mobile-First** — Diseñado primero para celular, escala a desktop
-- **`prefers-reduced-motion`** — Respeta preferencias de accesibilidad
-
----
-
-## 🛠️ Tecnologías
-
-- HTML5 semántico
-- CSS3 (Custom Properties, Grid, Flexbox, Animations)
-- Vanilla JavaScript (Intersection Observer, RAF counters)
-
----
-
-## 🚀 Cómo usar
-
-1. Clona el repositorio
-2. Abre `landing page.html` en tu navegador
-3. O lanza un servidor local:
-
-```bash
-npx serve
+├── landing page.html   # Estructura semántica del sitio y componentes de conversión
+├── style.css           # Sistema de diseño con variables CSS, animaciones y responsive layout
+├── script.js           # Lógica interactiva (temporizador, acordeón, revelación en scroll, etc.)
+└── README.md           # Documentación del repositorio
 ```
 
 ---
 
-## ✏️ Mantenimiento Rápido
+## 🛠️ Tecnologías Utilizadas
 
-Para cambiar precios, textos o descuentos, edita directamente el archivo `landing page.html`. Todo está en texto plano y claramente etiquetado con comentarios HTML.
-
-| Quieres cambiar... | Busca en el HTML... |
-|---|---|
-| Precio del sérum | `$68.80` y `$86` |
-| Porcentaje de descuento | `20% OFF` / `AURELIA20` |
-| Código de cupón | `AURELIA20` |
-| Incentivo del email | Sección `#contacto` |
-| Testimonios | Sección `#resenas` |
+- **HTML5:** Marcado semántico y accesible.
+- **CSS3:** Variables nativas, Flexbox, CSS Grid y animaciones optimizadas.
+- **JavaScript (ES6+):** Vanilla JS para la lógica interactiva y observadores de intersección (*Intersection Observer*).
 
 ---
 
-## 📱 Secciones de la Landing
+## 💻 Vista Previa Local
 
-1. **Barra de urgencia** — Countdown + código de descuento
-2. **Navegación fija** — Con botón "Comprar" siempre visible
-3. **Hero** — Título, prueba social, CTA principal, producto visual
-4. **Barra de confianza** — Íconos: Seguro, +12K clientas, envío gratis, garantía, cruelty free
-5. **Beneficios** — 4 tarjetas con íconos SVG
-6. **Resultados** — Estadísticas animadas (94%, 89%, 97%, 14 días)
-7. **Pasos del ritual** — 3 pasos simples
-8. **Reseñas** — 6 testimonios con avatares y badges verificados
-9. **Card de compra** — Precio, descuento, garantía, métodos de pago
-10. **FAQ** — 5 preguntas con accordion
-11. **Captura de email** — Guía gratis + cupón 25%
-12. **Footer** — Links, redes, métodos de pago
+Para ejecutar el proyecto localmente:
 
----
-
-*Diseñada para vender. Construida para volar.*
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/carlos2024r3223rw/aurelia-landing-page.git
+   ```
+2. Abre `landing page.html` directamente en tu navegador o inicia un servidor local:
+   ```bash
+   npx serve
+   ```
