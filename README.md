@@ -25,7 +25,7 @@ Una landing page moderna, ultrarrápida y optimizada para **conversión directa*
 ## 📂 Estructura del Código
 
 ```
-├── landing page.html   # Estructura semántica del sitio y componentes de conversión
+├── index.html   # Estructura semántica del sitio y componentes de conversión
 ├── style.css           # Sistema de diseño con variables CSS, animaciones y responsive layout
 ├── script.js           # Lógica interactiva (temporizador, acordeón, revelación en scroll, etc.)
 └── README.md           # Documentación del repositorio
