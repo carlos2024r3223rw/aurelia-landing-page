@@ -1047,3 +1047,33 @@ input { font-family: var(--font-body); }
   .hero__glow { animation: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ---------- LANGUAGE TOGGLE ---------- */
+.lang-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.lang-toggle__btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-xl);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+}
+.lang-toggle__btn:hover {
+  color: var(--gold-bright);
+  border-color: var(--border-gold);
+}
+.lang-toggle__btn.is-active {
+  background: var(--gold-glow);
+  color: var(--gold-bright);
+  border-color: var(--gold-soft);
+}

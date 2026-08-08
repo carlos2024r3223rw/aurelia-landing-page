@@ -198,4 +198,18 @@
     });
   });
 
+  // ---------- LANGUAGE TOGGLE ----------
+  document.querySelectorAll('.lang-toggle__btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.lang-toggle__btn').forEach(function (b) {
+        b.classList.remove('is-active');
+      });
+      this.classList.add('is-active');
+      
+      // Opcional: Aquí se podría agregar la lógica real para cambiar el idioma
+      // document.documentElement.lang = this.getAttribute('data-lang');
+      // updateLanguage(this.getAttribute('data-lang'));
+    });
+  });
+
 })();
