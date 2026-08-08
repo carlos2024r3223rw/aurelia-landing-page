@@ -16,9 +16,9 @@
 <div class="urgency-bar" id="urgencyBar">
   <div class="urgency-bar__inner">
     <span class="urgency-bar__icon">🔥</span>
-    <span>OFERTA FLASH — <strong>20% OFF</strong> termina en </span>
+    <span data-i18n="urgency-text-1">OFERTA FLASH — <strong>20% OFF</strong> termina en </span>
     <span class="countdown" id="countdown">02:59:47</span>
-    <span> — Código: <strong>AURELIA20</strong></span>
+    <span data-i18n="urgency-text-2"> — Código: <strong>AURELIA20</strong></span>
   </div>
 </div>
 
@@ -27,17 +27,17 @@
   <div class="container nav__inner">
     <a href="#" class="nav__logo" aria-label="Aurelia inicio">AURELIA</a>
     <ul class="nav__links" id="navLinks">
-      <li><a href="#producto">Producto</a></li>
-      <li><a href="#resultados">Resultados</a></li>
-      <li><a href="#resenas">Reseñas</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#producto" data-i18n="nav-producto">Producto</a></li>
+      <li><a href="#resultados" data-i18n="nav-resultados">Resultados</a></li>
+      <li><a href="#resenas" data-i18n="nav-resenas">Reseñas</a></li>
+      <li><a href="#faq" data-i18n="nav-faq">FAQ</a></li>
     </ul>
     <div class="nav__actions">
       <div class="lang-toggle lang-toggle--nav" aria-label="Cambiar idioma">
         <button class="lang-toggle__btn is-active" data-lang="es">ES</button>
         <button class="lang-toggle__btn" data-lang="en">EN</button>
       </div>
-      <a href="#comprar" class="btn btn--cta btn--sm" id="navBuyBtn">Comprar Ahora</a>
+      <a href="#comprar" class="btn btn--cta btn--sm" id="navBuyBtn" data-i18n="nav-comprar">Comprar Ahora</a>
       <button class="nav__burger" id="navBurger" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
@@ -51,22 +51,22 @@
     <div class="hero__content">
       <div class="hero__badge">
         <span class="pulse-dot"></span>
-        <span>+12,400 clientas satisfechas</span>
+        <span data-i18n="hero-badge">+12,400 clientas satisfechas</span>
       </div>
-      <h1 class="hero__title">Tu piel merece <em>oro de verdad.</em></h1>
-      <p class="hero__sub">El Sérum Aurelia 24K combina oro puro con ácido hialurónico y vitamina C para resultados visibles en solo 14 días. Sin parabenos. Sin trucos.</p>
+      <h1 class="hero__title" data-i18n="hero-title">Tu piel merece <em>oro de verdad.</em></h1>
+      <p class="hero__sub" data-i18n="hero-sub">El Sérum Aurelia 24K combina oro puro con ácido hialurónico y vitamina C para resultados visibles en solo 14 días. Sin parabenos. Sin trucos.</p>
       
       <div class="hero__proof">
         <div class="hero__stars">★★★★★ <span>4.9/5</span></div>
-        <span class="hero__reviews-count">Basado en 2,847 reseñas verificadas</span>
+        <span class="hero__reviews-count" data-i18n="hero-reviews">Basado en 2,847 reseñas verificadas</span>
       </div>
 
       <div class="hero__cta-group">
         <a href="#comprar" class="btn btn--cta btn--lg btn--pulse" id="heroBuyBtn">
-          <span class="btn__text">QUIERO MI SÉRUM — 20% OFF</span>
-          <span class="btn__sub">Envío gratis · Garantía 30 días</span>
+          <span class="btn__text" data-i18n="hero-btn">QUIERO MI SÉRUM — 20% OFF</span>
+          <span class="btn__sub" data-i18n="hero-btn-sub">Envío gratis · Garantía 30 días</span>
         </a>
-        <p class="hero__stock"><span class="pulse-dot pulse-dot--red"></span> Solo quedan <strong id="stockCount">23</strong> unidades en stock</p>
+        <p class="hero__stock"><span class="pulse-dot pulse-dot--red"></span> <span data-i18n="hero-stock-1"> Solo quedan </span><strong id="stockCount">23</strong><span data-i18n="hero-stock-2"> unidades en stock</span></p>
       </div>
     </div>
 
@@ -116,7 +116,7 @@
         <div class="hero__price-tag">
           <span class="hero__price-old">$86</span>
           <span class="hero__price-new">$68.80</span>
-          <span class="hero__price-save">Ahorras $17.20</span>
+          <span class="hero__price-save" data-i18n="hero-save">Ahorras $17.20</span>
         </div>
       </div>
     </div>
@@ -128,23 +128,23 @@
   <div class="container trust-bar__inner">
     <div class="trust-bar__item">
       <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <span>100% Seguro</span>
+      <span data-i18n="trust-1">100% Seguro</span>
     </div>
     <div class="trust-bar__item">
       <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      <span>+12,400 Clientas</span>
+      <span data-i18n="trust-2">+12,400 Clientas</span>
     </div>
     <div class="trust-bar__item">
       <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-      <span>Envío Gratis</span>
+      <span data-i18n="trust-3">Envío Gratis</span>
     </div>
     <div class="trust-bar__item">
       <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      <span>Garantía 30 Días</span>
+      <span data-i18n="trust-4">Garantía 30 Días</span>
     </div>
     <div class="trust-bar__item">
       <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-      <span>Cruelty Free</span>
+      <span data-i18n="trust-5">Cruelty Free</span>
     </div>
   </div>
 </section>
@@ -153,42 +153,42 @@
 <section class="section section--dark" id="producto">
   <div class="container">
     <div class="section__header section__header--center reveal">
-      <span class="tag">¿Por qué Aurelia?</span>
-      <h2>Resultados reales, no promesas vacías</h2>
-      <p>Formulado con ingredientes clínicamente probados que tu piel reconoce y absorbe al instante.</p>
+      <span class="tag" data-i18n="ben-tag">¿Por qué Aurelia?</span>
+      <h2 data-i18n="ben-title">Resultados reales, no promesas vacías</h2>
+      <p data-i18n="ben-sub">Formulado con ingredientes clínicamente probados que tu piel reconoce y absorbe al instante.</p>
     </div>
     <div class="benefits-grid">
       <div class="benefit reveal">
         <div class="benefit__icon">
           <svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="20" fill="none" stroke="#E3C07C" stroke-width="1.5"/><path d="M24 14v10l6 4" fill="none" stroke="#E3C07C" stroke-width="2" stroke-linecap="round"/></svg>
         </div>
-        <h3 class="benefit__title">Resultados en 14 días</h3>
-        <p class="benefit__text">El 94% de nuestras clientas reportan piel más luminosa y firme en solo dos semanas de uso diario.</p>
+        <h3 class="benefit__title" data-i18n="ben-1-title">Resultados en 14 días</h3>
+        <p class="benefit__text" data-i18n="ben-1-text">El 94% de nuestras clientas reportan piel más luminosa y firme en solo dos semanas de uso diario.</p>
       </div>
       <div class="benefit reveal">
         <div class="benefit__icon">
           <svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="20" fill="none" stroke="#E3C07C" stroke-width="1.5"/><path d="M16 24c0-6 4-10 8-10s8 4 8 10-4 10-8 10-8-4-8-10z" fill="none" stroke="#E3C07C" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="#E3C07C"/></svg>
         </div>
-        <h3 class="benefit__title">Oro puro de 24K</h3>
-        <p class="benefit__text">Micropartículas de oro real que estimulan la producción de colágeno y reducen visiblemente las líneas finas.</p>
+        <h3 class="benefit__title" data-i18n="ben-2-title">Oro puro de 24K</h3>
+        <p class="benefit__text" data-i18n="ben-2-text">Micropartículas de oro real que estimulan la producción de colágeno y reducen visiblemente las líneas finas.</p>
       </div>
       <div class="benefit reveal">
         <div class="benefit__icon">
           <svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="20" fill="none" stroke="#E3C07C" stroke-width="1.5"/><path d="M18 20c0-4 3-7 6-7s6 3 6 7c0 6-6 12-6 12s-6-6-6-12z" fill="none" stroke="#E3C07C" stroke-width="2"/></svg>
         </div>
-        <h3 class="benefit__title">Fórmula limpia</h3>
-        <p class="benefit__text">Sin parabenos, sin sulfatos, sin fragancias artificiales. Solo ingredientes que tu piel necesita, nada más.</p>
+        <h3 class="benefit__title" data-i18n="ben-3-title">Fórmula limpia</h3>
+        <p class="benefit__text" data-i18n="ben-3-text">Sin parabenos, sin sulfatos, sin fragancias artificiales. Solo ingredientes que tu piel necesita, nada más.</p>
       </div>
       <div class="benefit reveal">
         <div class="benefit__icon">
           <svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="20" fill="none" stroke="#E3C07C" stroke-width="1.5"/><path d="M15 28l6-6 4 4 8-8" fill="none" stroke="#E3C07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h3 class="benefit__title">Absorción instantánea</h3>
-        <p class="benefit__text">Textura ultraligera que penetra en segundos. Nada pegajoso, nada pesado. Tu maquillaje se aplica perfecto encima.</p>
+        <h3 class="benefit__title" data-i18n="ben-4-title">Absorción instantánea</h3>
+        <p class="benefit__text" data-i18n="ben-4-text">Textura ultraligera que penetra en segundos. Nada pegajoso, nada pesado. Tu maquillaje se aplica perfecto encima.</p>
       </div>
     </div>
     <div class="section__cta reveal">
-      <a href="#comprar" class="btn btn--cta btn--lg">PROBAR AHORA CON 20% OFF →</a>
+      <a href="#comprar" class="btn btn--cta btn--lg" data-i18n="ben-cta">PROBAR AHORA CON 20% OFF →</a>
     </div>
   </div>
 </section>
@@ -197,30 +197,30 @@
 <section class="section section--cream" id="resultados">
   <div class="container">
     <div class="section__header section__header--center reveal">
-      <span class="tag tag--dark">Resultados comprobados</span>
-      <h2 class="text-dark">Los números no mienten</h2>
-      <p class="text-muted-dark">Estudio clínico independiente con 200 participantes durante 28 días.</p>
+      <span class="tag tag--dark" data-i18n="res-tag">Resultados comprobados</span>
+      <h2 class="text-dark" data-i18n="res-title">Los números no mienten</h2>
+      <p class="text-muted-dark" data-i18n="res-sub">Estudio clínico independiente con 200 participantes durante 28 días.</p>
     </div>
     <div class="stats-grid">
       <div class="stat reveal">
         <span class="stat__number" data-target="94">0</span>
         <span class="stat__unit">%</span>
-        <p class="stat__label">reportaron piel más luminosa</p>
+        <p class="stat__label" data-i18n="res-1">reportaron piel más luminosa</p>
       </div>
       <div class="stat reveal">
         <span class="stat__number" data-target="89">0</span>
         <span class="stat__unit">%</span>
-        <p class="stat__label">notaron reducción de líneas finas</p>
+        <p class="stat__label" data-i18n="res-2">notaron reducción de líneas finas</p>
       </div>
       <div class="stat reveal">
         <span class="stat__number" data-target="97">0</span>
         <span class="stat__unit">%</span>
-        <p class="stat__label">lo recomendarían a una amiga</p>
+        <p class="stat__label" data-i18n="res-3">lo recomendarían a una amiga</p>
       </div>
       <div class="stat reveal">
         <span class="stat__number" data-target="14">0</span>
         <span class="stat__unit">días</span>
-        <p class="stat__label">para ver resultados visibles</p>
+        <p class="stat__label" data-i18n="res-4">para ver resultados visibles</p>
       </div>
     </div>
   </div>
@@ -230,27 +230,27 @@
 <section class="section section--dark">
   <div class="container">
     <div class="section__header section__header--center reveal">
-      <span class="tag">Tu nuevo ritual</span>
-      <h2>Simple. Rápido. Efectivo.</h2>
-      <p>Solo 60 segundos al día para una piel transformada.</p>
+      <span class="tag" data-i18n="how-tag">Tu nuevo ritual</span>
+      <h2 data-i18n="how-title">Simple. Rápido. Efectivo.</h2>
+      <p data-i18n="how-sub">Solo 60 segundos al día para una piel transformada.</p>
     </div>
     <div class="steps-grid">
       <div class="step reveal">
         <div class="step__num">01</div>
-        <h3 class="step__title">Limpia</h3>
-        <p class="step__text">Sobre la piel limpia y ligeramente húmeda, aplica 3-4 gotas del sérum.</p>
+        <h3 class="step__title" data-i18n="how-1-title">Limpia</h3>
+        <p class="step__text" data-i18n="how-1-text">Sobre la piel limpia y ligeramente húmeda, aplica 3-4 gotas del sérum.</p>
       </div>
       <div class="step__arrow reveal" aria-hidden="true">→</div>
       <div class="step reveal">
         <div class="step__num">02</div>
-        <h3 class="step__title">Aplica</h3>
-        <p class="step__text">Extiende con movimientos ascendentes sobre rostro, cuello y escote.</p>
+        <h3 class="step__title" data-i18n="how-2-title">Aplica</h3>
+        <p class="step__text" data-i18n="how-2-text">Extiende con movimientos ascendentes sobre rostro, cuello y escote.</p>
       </div>
       <div class="step__arrow reveal" aria-hidden="true">→</div>
       <div class="step reveal">
         <div class="step__num">03</div>
-        <h3 class="step__title">Brilla</h3>
-        <p class="step__text">Deja que la fórmula se absorba 30 segundos y disfruta tu glow dorado.</p>
+        <h3 class="step__title" data-i18n="how-3-title">Brilla</h3>
+        <p class="step__text" data-i18n="how-3-text">Deja que la fórmula se absorba 30 segundos y disfruta tu glow dorado.</p>
       </div>
     </div>
   </div>
@@ -260,74 +260,74 @@
 <section class="section section--dark" id="resenas">
   <div class="container">
     <div class="section__header section__header--center reveal">
-      <span class="tag">Reseñas reales</span>
-      <h2>Lo que dicen nuestras clientas</h2>
-      <p>No nos creas a nosotros. Escúchalas a ellas.</p>
+      <span class="tag" data-i18n="rev-tag">Reseñas reales</span>
+      <h2 data-i18n="rev-title">Lo que dicen nuestras clientas</h2>
+      <p data-i18n="rev-sub">No nos creas a nosotros. Escúchalas a ellas.</p>
     </div>
     <div class="reviews-grid">
       <div class="review reveal">
         <div class="review__stars">★★★★★</div>
-        <p class="review__text">"Llevaba años buscando un sérum que de verdad se notara. A las dos semanas mi esposo me dijo '¿qué te hiciste en la cara?' Es la mejor inversión que he hecho en skincare."</p>
+        <p class="review__text" data-i18n="rev-1">"Llevaba años buscando un sérum que de verdad se notara. A las dos semanas mi esposo me dijo '¿qué te hiciste en la cara?' Es la mejor inversión que he hecho en skincare."</p>
         <div class="review__author">
           <div class="review__avatar">RM</div>
           <div>
             <strong class="review__name">Renata Martínez</strong>
-            <span class="review__badge">✓ Compra verificada</span>
+            <span class="review__badge" data-i18n="verif">✓ Compra verificada</span>
           </div>
         </div>
       </div>
       <div class="review reveal">
         <div class="review__stars">★★★★★</div>
-        <p class="review__text">"Tengo piel sensible y siempre me da miedo probar cosas nuevas. Pero este sérum es suavísimo, no me irritó NADA y mi piel se ve increíble. Ya voy por mi tercer frasco."</p>
+        <p class="review__text" data-i18n="rev-2">"Tengo piel sensible y siempre me da miedo probar cosas nuevas. Pero este sérum es suavísimo, no me irritó NADA y mi piel se ve increíble. Ya voy por mi tercer frasco."</p>
         <div class="review__author">
           <div class="review__avatar">CS</div>
           <div>
             <strong class="review__name">Camila Solano</strong>
-            <span class="review__badge">✓ Compra verificada</span>
+            <span class="review__badge" data-i18n="verif">✓ Compra verificada</span>
           </div>
         </div>
       </div>
       <div class="review reveal">
         <div class="review__stars">★★★★★</div>
-        <p class="review__text">"Lo compré por el descuento sin esperar mucho. Me equivoqué. Se absorbe al instante, no deja nada pegajoso y mi maquillaje dura el doble. Soy fan de por vida."</p>
+        <p class="review__text" data-i18n="rev-3">"Lo compré por el descuento sin esperar mucho. Me equivoqué. Se absorbe al instante, no deja nada pegajoso y mi maquillaje dura el doble. Soy fan de por vida."</p>
         <div class="review__author">
           <div class="review__avatar">VR</div>
           <div>
             <strong class="review__name">Valeria Reyes</strong>
-            <span class="review__badge">✓ Compra verificada</span>
+            <span class="review__badge" data-i18n="verif">✓ Compra verificada</span>
           </div>
         </div>
       </div>
       <div class="review reveal">
         <div class="review__stars">★★★★★</div>
-        <p class="review__text">"Tengo 45 años y por fin encontré algo que realmente hace lo que promete. Las líneas alrededor de mis ojos se ven mucho más suaves. El envío fue rapidísimo."</p>
+        <p class="review__text" data-i18n="rev-4">"Tengo 45 años y por fin encontré algo que realmente hace lo que promete. Las líneas alrededor de mis ojos se ven mucho más suaves. El envío fue rapidísimo."</p>
         <div class="review__author">
           <div class="review__avatar">LP</div>
           <div>
             <strong class="review__name">Laura Pérez</strong>
-            <span class="review__badge">✓ Compra verificada</span>
+            <span class="review__badge" data-i18n="verif">✓ Compra verificada</span>
           </div>
         </div>
       </div>
       <div class="review reveal">
         <div class="review__stars">★★★★★</div>
-        <p class="review__text">"Se lo regalé a mi mamá y le encantó tanto que tuve que comprar uno para mí. La textura es lujosa pero ligera. Se nota que es un producto de calidad real."</p>
+        <p class="review__text" data-i18n="rev-5">"Se lo regalé a mi mamá y le encantó tanto que tuve que comprar uno para mí. La textura es lujosa pero ligera. Se nota que es un producto de calidad real."</p>
         <div class="review__author">
           <div class="review__avatar">AF</div>
           <div>
             <strong class="review__name">Andrea Fuentes</strong>
-            <span class="review__badge">✓ Compra verificada</span>
+            <span class="review__badge" data-i18n="verif">✓ Compra verificada</span>
           </div>
         </div>
       </div>
       <div class="review reveal">
         <div class="review__stars">★★★★★</div>
-        <p class="review__text">"Ya probé de todo: Clinique, Estée Lauder, Ordinary... Este sérum los supera a todos. Y es más barato. No puedo creer que sea una marca salvadoreña. ¡Orgullo!"</p>
+        <p class="review__text" data-i18n="rev-6">"Ya probé de todo: Clinique, Estée Lauder, Ordinary... Este sérum los supera a todos. Y es más barato. No puedo creer que sea una marca salvadoreña. ¡Orgullo!"</p>
         <div class="review__author">
           <div class="review__avatar">MG</div>
           <div>
             <strong class="review__name">María García</strong>
-            <span class="review__badge">✓ Compra verificada</span>
+            <span class="review__badge" data-i18n="verif">✓ Compra verificada</span>
           </div>
         </div>
       </div>
@@ -340,26 +340,26 @@
   <div class="container">
     <div class="buy-card reveal">
       <div class="buy-card__header">
-        <span class="buy-card__badge">MÁS VENDIDO</span>
-        <h2 class="buy-card__title">Sérum Aurelia 24K</h2>
-        <p class="buy-card__desc">30ml · Suministro para 2 meses · Resultados en 14 días</p>
+        <span class="buy-card__badge" data-i18n="buy-badge">MÁS VENDIDO</span>
+        <h2 class="buy-card__title" data-i18n="buy-title">Sérum Aurelia 24K</h2>
+        <p class="buy-card__desc" data-i18n="buy-desc">30ml · Suministro para 2 meses · Resultados en 14 días</p>
       </div>
       <div class="buy-card__pricing">
         <div class="buy-card__prices">
           <span class="buy-card__old-price">$86.00</span>
           <span class="buy-card__new-price">$68.80</span>
         </div>
-        <span class="buy-card__save-badge">AHORRAS $17.20</span>
+        <span class="buy-card__save-badge" data-i18n="buy-save">AHORRAS $17.20</span>
       </div>
       <ul class="buy-card__includes">
-        <li>✓ Sérum Aurelia 24K (30ml)</li>
-        <li>✓ Envío gratis a todo El Salvador</li>
-        <li>✓ Garantía de satisfacción 30 días</li>
-        <li>✓ Guía digital: "Tu ritual dorado"</li>
+        <li data-i18n="buy-inc-1">✓ Sérum Aurelia 24K (30ml)</li>
+        <li data-i18n="buy-inc-2">✓ Envío gratis a todo El Salvador</li>
+        <li data-i18n="buy-inc-3">✓ Garantía de satisfacción 30 días</li>
+        <li data-i18n="buy-inc-4">✓ Guía digital: "Tu ritual dorado"</li>
       </ul>
       <a href="#" class="btn btn--cta btn--xl btn--pulse" id="mainBuyBtn">
-        <span class="btn__text">🛒 COMPRAR AHORA — $68.80</span>
-        <span class="btn__sub">Pago seguro con tarjeta, PayPal o transferencia</span>
+        <span class="btn__text" data-i18n="buy-btn">🛒 COMPRAR AHORA — $68.80</span>
+        <span class="btn__sub" data-i18n="buy-btn-sub">Pago seguro con tarjeta, PayPal o transferencia</span>
       </a>
       <div class="buy-card__trust">
         <div class="payment-icons">
@@ -376,7 +376,7 @@
             <svg viewBox="0 0 48 32" width="42" height="28"><rect width="48" height="32" rx="4" fill="#2D6B4A"/><text x="24" y="20" text-anchor="middle" fill="#fff" font-family="Inter" font-size="8" font-weight="500">TRANSFER</text></svg>
           </span>
         </div>
-        <p class="buy-card__guarantee">🔒 Transacción 100% segura · SSL encriptado</p>
+        <p class="buy-card__guarantee" data-i18n="buy-sec">🔒 Transacción 100% segura · SSL encriptado</p>
       </div>
     </div>
   </div>
@@ -386,58 +386,58 @@
 <section class="section section--dark" id="faq">
   <div class="container">
     <div class="section__header section__header--center reveal">
-      <span class="tag">Preguntas frecuentes</span>
-      <h2>¿Tienes dudas? Te las resolvemos</h2>
+      <span class="tag" data-i18n="faq-tag">Preguntas frecuentes</span>
+      <h2 data-i18n="faq-title">¿Tienes dudas? Te las resolvemos</h2>
     </div>
     <div class="faq-list">
       <div class="faq reveal">
         <button class="faq__question" aria-expanded="false">
-          <span>¿En cuánto tiempo veo resultados?</span>
+          <span data-i18n="faq-q1">¿En cuánto tiempo veo resultados?</span>
           <span class="faq__icon">+</span>
         </button>
         <div class="faq__answer">
-          <p>La mayoría de nuestras clientas notan una diferencia visible en la luminosidad de su piel en los primeros 7-14 días de uso diario. Para resultados completos (reducción de líneas finas, firmeza), recomendamos un uso consistente de 4-6 semanas.</p>
+          <p data-i18n="faq-a1">La mayoría de nuestras clientas notan una diferencia visible en la luminosidad de su piel en los primeros 7-14 días de uso diario. Para resultados completos (reducción de líneas finas, firmeza), recomendamos un uso consistente de 4-6 semanas.</p>
         </div>
       </div>
       <div class="faq reveal">
         <button class="faq__question" aria-expanded="false">
-          <span>¿Es seguro para piel sensible?</span>
+          <span data-i18n="faq-q2">¿Es seguro para piel sensible?</span>
           <span class="faq__icon">+</span>
         </button>
         <div class="faq__answer">
-          <p>¡Absolutamente! Nuestra fórmula es hipoalergénica y ha sido dermatológicamente probada. No contiene parabenos, sulfatos, fragancias artificiales ni alcohol. Está diseñada para todo tipo de piel, incluyendo la más sensible.</p>
+          <p data-i18n="faq-a2">¡Absolutamente! Nuestra fórmula es hipoalergénica y ha sido dermatológicamente probada. No contiene parabenos, sulfatos, fragancias artificiales ni alcohol. Está diseñada para todo tipo de piel, incluyendo la más sensible.</p>
         </div>
       </div>
       <div class="faq reveal">
         <button class="faq__question" aria-expanded="false">
-          <span>¿Cuánto tiempo dura un frasco?</span>
+          <span data-i18n="faq-q3">¿Cuánto tiempo dura un frasco?</span>
           <span class="faq__icon">+</span>
         </button>
         <div class="faq__answer">
-          <p>Cada frasco contiene 30ml, lo que equivale a aproximadamente 2 meses de uso diario (3-4 gotas por aplicación). Es una inversión que rinde mucho más que los sérums convencionales.</p>
+          <p data-i18n="faq-a3">Cada frasco contiene 30ml, lo que equivale a aproximadamente 2 meses de uso diario (3-4 gotas por aplicación). Es una inversión que rinde mucho más que los sérums convencionales.</p>
         </div>
       </div>
       <div class="faq reveal">
         <button class="faq__question" aria-expanded="false">
-          <span>¿Qué pasa si no me gusta? ¿Puedo devolverlo?</span>
+          <span data-i18n="faq-q4">¿Qué pasa si no me gusta? ¿Puedo devolverlo?</span>
           <span class="faq__icon">+</span>
         </button>
         <div class="faq__answer">
-          <p>Sí. Ofrecemos una garantía de satisfacción de 30 días. Si por cualquier razón no estás satisfecha con tu compra, te devolvemos el 100% de tu dinero, sin preguntas. El riesgo es nuestro, no tuyo.</p>
+          <p data-i18n="faq-a4">Sí. Ofrecemos una garantía de satisfacción de 30 días. Si por cualquier razón no estás satisfecha con tu compra, te devolvemos el 100% de tu dinero, sin preguntas. El riesgo es nuestro, no tuyo.</p>
         </div>
       </div>
       <div class="faq reveal">
         <button class="faq__question" aria-expanded="false">
-          <span>¿Hacen envíos internacionales?</span>
+          <span data-i18n="faq-q5">¿Hacen envíos internacionales?</span>
           <span class="faq__icon">+</span>
         </button>
         <div class="faq__answer">
-          <p>Actualmente hacemos envíos gratuitos a todo El Salvador (2-3 días hábiles). Para envíos a Guatemala, Honduras, Costa Rica y resto de Centroamérica, el costo es de $5.99 (5-7 días hábiles). Contáctanos para envíos al resto del mundo.</p>
+          <p data-i18n="faq-a5">Actualmente hacemos envíos gratuitos a todo El Salvador (2-3 días hábiles). Para envíos a Guatemala, Honduras, Costa Rica y resto de Centroamérica, el costo es de $5.99 (5-7 días hábiles). Contáctanos para envíos al resto del mundo.</p>
         </div>
       </div>
     </div>
     <div class="section__cta reveal">
-      <a href="#comprar" class="btn btn--cta btn--lg">APROVECHA TU 20% OFF AHORA →</a>
+      <a href="#comprar" class="btn btn--cta btn--lg" data-i18n="faq-cta">APROVECHA TU 20% OFF AHORA →</a>
     </div>
   </div>
 </section>
@@ -446,14 +446,14 @@
 <section class="section section--gold" id="contacto">
   <div class="container">
     <div class="email-capture reveal">
-      <h2 class="email-capture__title">¿Aún no estás lista para comprar?</h2>
-      <p class="email-capture__sub">Déjanos tu correo y te enviamos una <strong>guía gratuita de skincare</strong> + un cupón exclusivo de <strong>25% de descuento</strong> para cuando te decidas.</p>
+      <h2 class="email-capture__title" data-i18n="email-title">¿Aún no estás lista para comprar?</h2>
+      <p class="email-capture__sub" data-i18n="email-sub">Déjanos tu correo y te enviamos una <strong>guía gratuita de skincare</strong> + un cupón exclusivo de <strong>25% de descuento</strong> para cuando te decidas.</p>
       <form class="email-form" id="emailForm">
         <div class="email-form__row">
           <input type="email" class="email-form__input" id="emailInput" placeholder="tu@correo.com" required aria-label="Tu correo electrónico">
-          <button type="submit" class="btn btn--cta btn--form" id="emailSubmitBtn">ENVIAR MI GUÍA GRATIS</button>
+          <button type="submit" class="btn btn--cta btn--form" id="emailSubmitBtn" data-i18n="email-btn">ENVIAR MI GUÍA GRATIS</button>
         </div>
-        <p class="email-form__note">Sin spam. Puedes darte de baja cuando quieras.</p>
+        <p class="email-form__note" data-i18n="email-note">Sin spam. Puedes darte de baja cuando quieras.</p>
         <p class="email-form__msg" id="emailMsg"></p>
       </form>
     </div>
@@ -466,7 +466,7 @@
     <div class="footer__grid">
       <div class="footer__brand-col">
         <p class="footer__logo">AURELIA</p>
-        <p class="footer__tagline">Cosmética de autor con oro de 24 quilates. Hecha a mano en El Salvador.</p>
+        <p class="footer__tagline" data-i18n="footer-tag">Cosmética de autor con oro de 24 quilates. Hecha a mano en El Salvador.</p>
         <div class="footer__social">
           <a href="#" aria-label="Instagram" class="footer__social-link">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
@@ -480,31 +480,31 @@
         </div>
       </div>
       <div class="footer__col">
-        <h4>Comprar</h4>
+        <h4 data-i18n="footer-t1">Comprar</h4>
         <ul>
-          <li><a href="#comprar">Sérum 24K</a></li>
-          <li><a href="#resultados">Resultados</a></li>
-          <li><a href="#resenas">Reseñas</a></li>
+          <li><a href="#comprar" data-i18n="buy-title">Sérum 24K</a></li>
+          <li><a href="#resultados" data-i18n="nav-resultados">Resultados</a></li>
+          <li><a href="#resenas" data-i18n="nav-resenas">Reseñas</a></li>
         </ul>
       </div>
       <div class="footer__col">
-        <h4>Soporte</h4>
+        <h4 data-i18n="footer-t2">Soporte</h4>
         <ul>
-          <li><a href="#faq">Preguntas frecuentes</a></li>
-          <li><a href="#">Política de devoluciones</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="#faq" data-i18n="footer-t2-l1">Preguntas frecuentes</a></li>
+          <li><a href="#" data-i18n="footer-t2-l2">Política de devoluciones</a></li>
+          <li><a href="#" data-i18n="footer-t2-l3">Contacto</a></li>
         </ul>
       </div>
       <div class="footer__col">
-        <h4>Legal</h4>
+        <h4 data-i18n="footer-t3">Legal</h4>
         <ul>
-          <li><a href="#">Aviso de privacidad</a></li>
-          <li><a href="#">Términos y condiciones</a></li>
+          <li><a href="#" data-i18n="footer-t3-l1">Aviso de privacidad</a></li>
+          <li><a href="#" data-i18n="footer-t3-l2">Términos y condiciones</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© 2026 Aurelia. Todos los derechos reservados.</span>
+      <span data-i18n="footer-copy">© 2026 Aurelia. Todos los derechos reservados.</span>
       <div class="footer__payments">
         <svg viewBox="0 0 48 32" width="36" height="24"><rect width="48" height="32" rx="4" fill="#1A1F71"/><text x="24" y="20" text-anchor="middle" fill="#fff" font-family="Inter" font-size="11" font-weight="700">VISA</text></svg>
         <svg viewBox="0 0 48 32" width="36" height="24"><rect width="48" height="32" rx="4" fill="#2D2D2D"/><circle cx="19" cy="16" r="9" fill="#EB001B" opacity="0.9"/><circle cx="29" cy="16" r="9" fill="#F79E1B" opacity="0.9"/></svg>
@@ -517,11 +517,12 @@
 <!-- ========== STICKY CTA MÓVIL ========== -->
 <div class="sticky-cta" id="stickyCta">
   <a href="#comprar" class="btn btn--cta btn--sticky" id="stickyBuyBtn">
-    <span>🛒 COMPRAR — $68.80</span>
-    <span class="btn__sub-sticky">Envío gratis · 20% OFF</span>
+    <span data-i18n="sticky-btn">🛒 COMPRAR — $68.80</span>
+    <span class="btn__sub-sticky" data-i18n="sticky-sub">Envío gratis · 20% OFF</span>
   </a>
 </div>
 
+<script src="translations.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
