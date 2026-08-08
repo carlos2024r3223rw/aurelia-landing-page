@@ -1054,7 +1054,9 @@ input { font-family: var(--font-body); }
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-bottom: 20px;
+}
+.lang-toggle--nav {
+  margin-right: 15px;
 }
 .lang-toggle__btn {
   padding: 6px 14px;
