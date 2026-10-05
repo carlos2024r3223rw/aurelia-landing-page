@@ -1,82 +1,82 @@
-﻿# ✨ Aurelia Landing Page — Landing de Alta Conversión para Marca de Lujo
+# Aurelia Landing Page: High-Conversion Landing Page for a Luxury Brand
 
-> Página de aterrizaje premium diseñada para maximizar la captación de leads calificados. Construida con HTML5, CSS3 y JavaScript vanilla — sin dependencias, carga ultrarrápida.
+> Premium landing page designed to maximize qualified lead capture. Built with HTML5, CSS3 and vanilla JavaScript: zero dependencies, ultra-fast loading.
 
-[![Demo en vivo](https://img.shields.io/badge/Demo-Live-brightgreen?style=for-the-badge)](https://carlos2024r3223rw.github.io/aurelia-landing-page/)
-[![Stack](https://img.shields.io/badge/Stack-HTML5%20%7C%20CSS3%20%7C%20JavaScript-orange?style=for-the-badge&logo=html5)](https://developer.mozilla.org/es/docs/Web/HTML)
+[![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen?style=for-the-badge)](https://carlos2024r3223rw.github.io/aurelia-landing-page/)
+[![Stack](https://img.shields.io/badge/Stack-HTML5%20%7C%20CSS3%20%7C%20JavaScript-orange?style=for-the-badge&logo=html5)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![Lighthouse](https://img.shields.io/badge/Lighthouse-100%2F100-brightgreen?style=for-the-badge)](https://pagespeed.web.dev/)
 
 ---
 
-## 🔴 El Problema
+## The Problem
 
-La marca no tenía presencia digital y perdía clientes potenciales frente a competidores con mejor imagen online:
+The brand had no digital presence and was losing potential customers to competitors with a stronger online image:
 
-- ❌ Sin landing page — los prospectos no encontraban información clara
-- ❌ La competencia con mejor presencia web capturaba los leads
-- ❌ Sin un CTA claro que convirtiera visitantes en contactos
+- No landing page, so prospects couldn't find clear information
+- Competitors with a better web presence were capturing the leads
+- No clear CTA to turn visitors into contacts
 
-## ✅ La Solución
+## The Solution
 
-Landing page con diseño premium enfocada 100% en conversiones:
+A premium-design landing page focused 100% on conversions:
 
-- 🎨 **Diseño de lujo** con paleta cuidada, tipografía premium y animaciones sutiles
-- ⚡ **Carga < 1 segundo** — sin frameworks, CSS y JS minificados
-- 📱 **100% responsive** — experiencia perfecta en móvil, tablet y desktop
-- 🎯 **CTAs estratégicos** posicionados en los puntos de mayor intención
-- 🔍 **SEO técnico** — meta tags, estructura semántica, Open Graph
+- **Luxury design** with a carefully chosen palette, premium typography and subtle animations
+- **Loads in under 1 second**: no frameworks, minified CSS and JS
+- **100% responsive**: a seamless experience on mobile, tablet and desktop
+- **Strategic CTAs** placed at the points of highest intent
+- **Technical SEO**: meta tags, semantic structure, Open Graph
 
-## 🧠 Reto Técnico Resuelto
+## Technical Challenge Solved
 
-El reto fue lograr **animaciones premium sin impactar el rendimiento**. Se implementaron animaciones CSS con `will-change` y `transform` (evitando `top/left` que fuerzan reflow), logrando efectos fluidos a 60fps incluso en dispositivos de gama media.
+The challenge was delivering **premium animations without hurting performance**. The animations use CSS with `will-change` and `transform` (avoiding `top/left`, which force reflow), achieving smooth 60fps effects even on mid-range devices.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Tech Stack
 
-| Área | Tecnología |
+| Area | Technology |
 |---|---|
-| Estructura | HTML5 semántico |
-| Estilos | CSS3 — Grid, Flexbox, Custom Properties, Animaciones |
-| Interactividad | JavaScript ES6+ vanilla |
-| Optimización | Sin dependencias — bundle size mínimo |
-| Deploy | GitHub Pages |
+| Structure | Semantic HTML5 |
+| Styling | CSS3: Grid, Flexbox, Custom Properties, Animations |
+| Interactivity | Vanilla JavaScript ES6+ |
+| Optimization | No dependencies, minimal bundle size |
+| Deployment | GitHub Pages |
 
 ---
 
-## 🚀 Instalación Local
+## Local Setup
 
-No requiere instalación. Solo abre el archivo directamente:
+No installation required. Just open the file directly:
 
 ```bash
 git clone https://github.com/carlos2024r3223rw/aurelia-landing-page.git
 cd aurelia-landing-page
-# Abrir index.html en tu navegador
+# Open index.html in your browser
 start index.html   # Windows
 open index.html    # macOS
 ```
 
 ---
 
-## 📁 Estructura del Proyecto
+## Project Structure
 
 ```
 aurelia-landing-page/
-├── index.html             # Estructura principal
+├── index.html             # Main structure
 ├── css/
-│   ├── styles.css         # Estilos principales
-│   └── animations.css     # Animaciones y transiciones
+│   ├── styles.css         # Main styles
+│   └── animations.css     # Animations and transitions
 ├── js/
-│   └── main.js            # Interactividad (scroll, navegación)
+│   └── main.js            # Interactivity (scroll, navigation)
 └── assets/
-    └── images/            # Recursos visuales optimizados
+    └── images/            # Optimized visual assets
 ```
 
 ---
 
-## 👤 Autor
+## Author
 
-**Carlos Manuel Martínez Lima** — Full Stack Developer · Especialista SaaS & eCommerce
+**Carlos Manuel Martínez Lima**: Full Stack Developer · SaaS & eCommerce Specialist
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-webcarlos--jet.vercel.app-blue?style=flat-square)](https://webcarlos-jet.vercel.app)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/carlos-manuel-martinez-lima-ba238a1a9/)
