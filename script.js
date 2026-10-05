@@ -491,7 +491,7 @@
       } else if (selectedPaymentMethod === 'transfer') {
         methodDisplay = currentLang === 'en' ? 'Bank Transfer (Banco Agrícola)' : 'Transferencia Banco Agrícola (Cta #120-49281-0)';
       } else {
-        methodDisplay = 'Tarjeta ' + brand + ' (•••• ' + last4 + ')';
+        methodDisplay = (currentLang === 'en' ? 'Card ' : 'Tarjeta ') + brand + ' (•••• ' + last4 + ')';
       }
 
       currentOrderData = {
@@ -543,58 +543,248 @@
     });
   }
 
+  // ---------- ORDER DATA FALLBACK HELPER ----------
+  function getCompleteOrderData() {
+    if (currentOrderData && currentOrderData.orderId) {
+      return currentOrderData;
+    }
+    var orderIdEl = document.getElementById('receiptOrderId');
+    var dateEl = document.getElementById('receiptDate');
+    var methodEl = document.getElementById('receiptPaymentMethod');
+    var addressEl = document.getElementById('receiptAddress');
+    var nameEl = document.getElementById('successCustomerName');
+
+    var randomNum = Math.floor(100000 + Math.random() * 900000);
+    var now = new Date();
+    var fallbackDate = now.toLocaleDateString(currentLang === 'en' ? 'en-US' : 'es-SV', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+
+    return {
+      orderId: (orderIdEl && orderIdEl.textContent.trim()) || ('#AUR-' + randomNum),
+      date: (dateEl && dateEl.textContent.trim() !== 'Hoy') ? dateEl.textContent.trim() : fallbackDate,
+      name: (nameEl && nameEl.textContent.trim()) || (currentLang === 'en' ? 'Valued Customer' : 'Sofía Martínez'),
+      email: 'sofia.martinez@ejemplo.com',
+      phone: '+503 7890-1234',
+      address: (addressEl && addressEl.textContent.trim()) || 'Colonia Escalón, Calle El Mirador #142, San Salvador',
+      method: (methodEl && methodEl.textContent.trim()) || 'Transferencia Banco Agrícola (Cta #120-49281-0)',
+      total: '$68.80 USD'
+    };
+  }
+
   // ---------- DOWNLOAD RECEIPT TXT ----------
   if (downloadReceiptBtn) {
     downloadReceiptBtn.addEventListener('click', function () {
-      if (!currentOrderData) return;
-      var receiptText = [
-        '======================================================',
-        '        AURELIA 24K SKINCARE — RECIBO OFICIAL         ',
-        '======================================================',
+      var data = getCompleteOrderData();
+      var isEn = currentLang === 'en';
+      var txnId = 'TXN-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+      var authCode = 'AUTH-' + Math.floor(100000 + Math.random() * 900000);
+      var trackingCode = 'SV-EXP-' + Math.floor(100000 + Math.random() * 900000);
+      var cleanOrderId = data.orderId.replace(/[^a-zA-Z0-9_-]/g, '');
+
+      var receiptText = isEn ? [
+        '========================================================================',
+        '                   AURELIA 24K BOTANICAL SKINCARE                       ',
+        '              OFFICIAL PAYMENT RECEIPT — DEMO CHECKOUT                  ',
+        '========================================================================',
         '',
-        'ORDEN:                 ' + currentOrderData.orderId,
-        'FECHA:                 ' + currentOrderData.date,
-        'ESTADO:                PAGADO Y AUTORIZADO (DEMO)',
-        'TRANSACCIÓN ID:        TXN-' + Math.random().toString(36).substring(2, 10).toUpperCase(),
+        'TRANSACTION SUMMARY',
+        '------------------------------------------------------------------------',
+        'Order Number:            ' + data.orderId,
+        'Date & Time:             ' + data.date,
+        'Payment Status:          PAID & AUTHORIZED (DEMO SIMULATION)',
+        'Transaction ID:          ' + txnId,
+        'Authorization Code:      ' + authCode + ' (3D-Secure Verified)',
+        'Security Encryption:     256-bit SSL / SHA-256 Validated',
         '',
-        '------------------------------------------------------',
+        'CUSTOMER & DELIVERY DETAILS',
+        '------------------------------------------------------------------------',
+        'Customer Name:           ' + data.name,
+        'Email Address:           ' + data.email,
+        'Phone Number:            ' + data.phone,
+        'Shipping Destination:    ' + data.address,
+        'Country:                 El Salvador',
+        'Courier Service:         DHL Express Priority / Tracking: ' + trackingCode,
+        'Estimated Delivery:      24 to 48 business hours',
+        '',
+        'PURCHASE BREAKDOWN',
+        '------------------------------------------------------------------------',
+        '1x Aurelia 24K Gold Serum (30ml) ......................... $86.00 USD',
+        '   Promo Discount (Code: AURELIA20 - 20% OFF) ............ -$17.20 USD',
+        '   Insured Express Shipping .............................. FREE ($0.00)',
+        '------------------------------------------------------------------------',
+        'TOTAL CHARGED:                                            $68.80 USD',
+        'PAYMENT METHOD:                                           ' + data.method,
+        '========================================================================',
+        '',
+        'WARRANTY & CUSTOMER SUPPORT',
+        '------------------------------------------------------------------------',
+        '* 30-Day Money-Back Guarantee: 100% satisfaction or full refund.',
+        '* Customer Support: hola@aureliaskincare.com | +503 2264-9000',
+        '* Aurelia Laboratories — Luxury Skincare Div. San Salvador, SV.',
+        '',
+        'Note: This is a simulated transaction receipt generated for demonstration',
+        'purposes. No real monetary charges were made.',
+        '',
+        'Thank you for joining the Aurelia 24K golden skincare ritual!',
+        '========================================================================'
+      ].join('\r\n') : [
+        '========================================================================',
+        '                   AURELIA 24K BOTANICAL SKINCARE                       ',
+        '            COMPROBANTE OFICIAL DE PAGO — PASARELA DEMO                 ',
+        '========================================================================',
+        '',
+        'RESUMEN DE LA TRANSACCIÓN',
+        '------------------------------------------------------------------------',
+        'Número de Pedido:        ' + data.orderId,
+        'Fecha y Hora:            ' + data.date,
+        'Estado del Pago:         PAGADO Y AUTORIZADO (TRANSACCIÓN DEMO EXITOSA)',
+        'ID de Transacción:       ' + txnId,
+        'Código de Autorización:  ' + authCode + ' (3D-Secure Verificado)',
+        'Seguridad Bancaria:      Encriptación SSL 256-bit / SHA-256 Validado',
+        '',
         'DATOS DEL CLIENTE Y ENVÍO',
-        '------------------------------------------------------',
-        'Nombre:                ' + currentOrderData.name,
-        'Email:                 ' + currentOrderData.email,
-        'Teléfono:              ' + currentOrderData.phone,
-        'Dirección:             ' + currentOrderData.address,
-        'País:                  El Salvador',
-        'Tiempo de Entrega:     24 a 48 horas hábiles',
-        'Rastreo Simulado:      SV-EXP-' + Math.floor(100000 + Math.random() * 900000),
+        '------------------------------------------------------------------------',
+        'Nombre del Titular:      ' + data.name,
+        'Correo Electrónico:      ' + data.email,
+        'Teléfono de Contacto:    ' + data.phone,
+        'Dirección de Entrega:    ' + data.address,
+        'País:                    El Salvador',
+        'Servicio de Envíos:      DHL Express El Salvador / Guía: ' + trackingCode,
+        'Tiempo Estimado:         24 a 48 horas hábiles',
         '',
-        '------------------------------------------------------',
         'DESGLOSE DE COMPRA',
-        '------------------------------------------------------',
-        '1x Sérum Aurelia 24K (30ml) ............ $86.00 USD',
-        'Descuento Promocional (AURELIA20) ...... -$17.20 USD',
-        'Envío Express Nacional ................. GRATIS ($0.00)',
-        '------------------------------------------------------',
-        'TOTAL CARGADO:                          $68.80 USD',
-        'MÉTODO DE PAGO:                         ' + currentOrderData.method,
-        '------------------------------------------------------',
+        '------------------------------------------------------------------------',
+        '1x Sérum Aurelia 24K (30ml) ............................. $86.00 USD',
+        '   Descuento Promocional (Código: AURELIA20 - 20% OFF) ... -$17.20 USD',
+        '   Envío Nacional Prioritario Asegurado .................. GRATIS ($0.00)',
+        '------------------------------------------------------------------------',
+        'TOTAL ABONADO:                                            $68.80 USD',
+        'MÉTODO DE PAGO:                                           ' + data.method,
+        '========================================================================',
         '',
-        'Garantía: 30 días de satisfacción total.',
-        'Soporte Aurelia: hola@aureliaskincare.com',
+        'GARANTÍA Y ATENCIÓN AL CLIENTE',
+        '------------------------------------------------------------------------',
+        '* Garantía Aurelia: 30 días de satisfacción total o devolución íntegra.',
+        '* Soporte y Asistencia: hola@aureliaskincare.com | +503 2264-9000',
+        '* Aurelia Laboratories — Luxury Skincare Div. San Salvador, El Salvador.',
+        '',
+        'Nota: Este documento es un comprobante de transacción simulada generado para',
+        'fines demostrativos. No se efectuó ningún débito monetario real.',
         '',
         '¡Gracias por formar parte del ritual dorado Aurelia!',
-        '======================================================'
-      ].join('\n');
+        '========================================================================'
+      ].join('\r\n');
 
-      var blob = new Blob([receiptText], { type: 'text/plain;charset=utf-8' });
+      var blob = new Blob(['\uFEFF' + receiptText], { type: 'text/plain;charset=utf-8' });
       var url = URL.createObjectURL(blob);
       var link = document.createElement('a');
       link.href = url;
-      link.download = 'Comprobante_Aurelia_' + currentOrderData.orderId.replace('#', '') + '.txt';
+      link.download = (isEn ? 'Aurelia_Payment_Receipt_' : 'Comprobante_Pago_Aurelia_') + cleanOrderId + '.txt';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      URL.revokeObjectURL(url);
+
+      setTimeout(function () {
+        URL.revokeObjectURL(url);
+      }, 3000);
+
+      var textEl = document.getElementById('downloadReceiptText');
+      var originalText = textEl ? textEl.innerHTML : downloadReceiptBtn.innerHTML;
+      downloadReceiptBtn.classList.add('is-downloaded');
+      if (textEl) {
+        textEl.textContent = isEn ? '✓ Downloaded!' : '✓ ¡Comprobante Descargado!';
+      }
+      setTimeout(function () {
+        downloadReceiptBtn.classList.remove('is-downloaded');
+        if (textEl) {
+          textEl.innerHTML = originalText;
+        }
+      }, 3000);
+    });
+  }
+
+  // ---------- PRINT / PDF RECEIPT ----------
+  var printReceiptBtn = document.getElementById('printReceiptBtn');
+  if (printReceiptBtn) {
+    printReceiptBtn.addEventListener('click', function () {
+      var data = getCompleteOrderData();
+      var isEn = currentLang === 'en';
+      var txnId = 'TXN-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+      var authCode = 'AUTH-' + Math.floor(100000 + Math.random() * 900000);
+      var trackingCode = 'SV-EXP-' + Math.floor(100000 + Math.random() * 900000);
+
+      var printWin = window.open('', '_blank', 'width=800,height=900');
+      if (!printWin) {
+        alert(isEn ? 'Please allow popups to view and print the receipt.' : 'Por favor habilita las ventanas emergentes para ver e imprimir el comprobante.');
+        return;
+      }
+
+      var html = '<!DOCTYPE html>' +
+        '<html>' +
+        '<head>' +
+        '<meta charset="utf-8">' +
+        '<title>' + (isEn ? 'Official Payment Receipt - ' : 'Comprobante Oficial de Pago - ') + data.orderId + '</title>' +
+        '<link rel="preconnect" href="https://fonts.googleapis.com">' +
+        '<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">' +
+        '<style>' +
+        'body { font-family: "Plus Jakarta Sans", sans-serif; margin: 0; padding: 32px; background: #FAF8F5; color: #2C2622; line-height: 1.5; }' +
+        '.voucher { max-width: 680px; margin: 0 auto; background: #FFFFFF; border: 2px solid #D4A84B; border-radius: 12px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); position: relative; }' +
+        '.header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #EFE8DC; padding-bottom: 24px; margin-bottom: 24px; }' +
+        '.logo { font-family: "Cinzel", serif; font-size: 26px; font-weight: 700; color: #B38628; letter-spacing: 0.1em; }' +
+        '.badge-paid { background: #E8F5E9; color: #2E7D32; border: 1px solid #A5D6A7; font-weight: 700; font-size: 12px; padding: 6px 14px; border-radius: 20px; display: inline-block; letter-spacing: 0.08em; }' +
+        '.meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px; }' +
+        '.meta-card { background: #FAF8F5; padding: 16px; border-radius: 8px; border: 1px solid #EFE8DC; font-size: 13px; }' +
+        '.meta-card strong { display: block; font-size: 11px; text-transform: uppercase; color: #8C7B70; margin-bottom: 6px; letter-spacing: 0.05em; }' +
+        '.table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 14px; }' +
+        '.table th { text-align: left; padding: 10px; background: #FAF8F5; border-bottom: 2px solid #EFE8DC; color: #5A4E46; font-size: 12px; text-transform: uppercase; }' +
+        '.table td { padding: 12px 10px; border-bottom: 1px solid #EFE8DC; }' +
+        '.table .num { text-align: right; }' +
+        '.total-row { font-size: 17px; font-weight: 700; color: #B38628; }' +
+        '.footer { margin-top: 30px; padding-top: 20px; border-top: 1px dashed #D4A84B; font-size: 12px; color: #8C7B70; text-align: center; }' +
+        '.print-bar { text-align: center; margin-bottom: 20px; }' +
+        '.print-btn { background: #D4A84B; color: #000; border: none; padding: 12px 28px; font-weight: 700; border-radius: 6px; cursor: pointer; font-size: 14px; }' +
+        '@media print { .print-bar { display: none; } body { padding: 0; background: #fff; } .voucher { box-shadow: none; border-color: #333; } }' +
+        '</style>' +
+        '</head>' +
+        '<body>' +
+        '<div class="print-bar">' +
+        '<button class="print-btn" onclick="window.print()">' + (isEn ? '🖨️ Print / Save as PDF' : '🖨️ Imprimir / Guardar como PDF') + '</button>' +
+        '</div>' +
+        '<div class="voucher">' +
+        '<div class="header">' +
+        '<div><div class="logo">AURELIA 24K</div><div style="font-size:12px;color:#8C7B70;margin-top:4px;">Botanical Luxury Skincare S.A. de C.V.</div></div>' +
+        '<div style="text-align:right;"><span class="badge-paid">✓ ' + (isEn ? 'PAYMENT APPROVED' : 'PAGO APROBADO') + '</span><div style="font-size:12px;color:#8C7B70;margin-top:6px;">' + (isEn ? 'DEMO SIMULATION' : 'SIMULACIÓN DEMO') + '</div></div>' +
+        '</div>' +
+        '<div class="meta-grid">' +
+        '<div class="meta-card"><strong>' + (isEn ? 'Order & Transaction' : 'Pedido y Transacción') + '</strong><div><b>' + data.orderId + '</b></div><div>' + data.date + '</div><div>ID: ' + txnId + '</div><div>Auth: ' + authCode + ' (3DS)</div></div>' +
+        '<div class="meta-card"><strong>' + (isEn ? 'Customer & Shipping' : 'Cliente y Envío') + '</strong><div><b>' + data.name + '</b></div><div>' + data.email + '</div><div>' + data.address + '</div><div>' + (isEn ? 'Tracking: ' : 'Guía: ') + trackingCode + '</div></div>' +
+        '</div>' +
+        '<table class="table">' +
+        '<thead><tr><th>' + (isEn ? 'Description' : 'Descripción') + '</th><th>' + (isEn ? 'Qty' : 'Cant') + '</th><th class="num">' + (isEn ? 'Amount' : 'Importe') + '</th></tr></thead>' +
+        '<tbody>' +
+        '<tr><td><b>Sérum Aurelia 24K (30ml)</b><br><small style="color:#8C7B70">' + (isEn ? 'Pure 24K Gold & Hyaluronic Acid' : 'Micropartículas de Oro 24K + Ácido Hialurónico') + '</small></td><td>1</td><td class="num">$86.00 USD</td></tr>' +
+        '<tr style="color:#2E7D32;"><td>' + (isEn ? 'Promo Discount (AURELIA20)' : 'Descuento Promocional (AURELIA20)') + '</td><td>-</td><td class="num">-$17.20 USD</td></tr>' +
+        '<tr style="color:#2E7D32;"><td>' + (isEn ? 'Insured Express Shipping' : 'Envío Express Asegurado') + '</td><td>-</td><td class="num">' + (isEn ? 'FREE' : 'GRATIS') + '</td></tr>' +
+        '<tr class="total-row"><td colspan="2">' + (isEn ? 'TOTAL CHARGED (' : 'TOTAL ABONADO (') + data.method + ')</td><td class="num">' + data.total + '</td></tr>' +
+        '</tbody>' +
+        '</table>' +
+        '<div class="footer">' +
+        '<p><b>' + (isEn ? '30-Day Total Satisfaction Guarantee' : 'Garantía Aurelia: 30 Días de Satisfacción Total') + '</b><br>' +
+        (isEn ? 'Customer Care: hola@aureliaskincare.com | San Salvador, El Salvador' : 'Atención al Cliente: hola@aureliaskincare.com | San Salvador, El Salvador') + '<br>' +
+        '<small>' + (isEn ? 'Demonstration voucher generated by Aurelia Skincare interactive checkout.' : 'Comprobante de demostración generado por la pasarela interactiva de Aurelia Skincare.') + '</small></p>' +
+        '</div>' +
+        '</div>' +
+        '</body>' +
+        '</html>';
+
+      printWin.document.open();
+      printWin.document.write(html);
+      printWin.document.close();
     });
   }
 
@@ -608,6 +798,8 @@
   var confettiParticles = [];
   var confettiAnimId = null;
   var confettiRunning = false;
+  var confettiStartTime = 0;
+  var CONFETTI_DURATION_MS = 2300; // Complete duration 2.3 seconds (vanishes within 2-3s)
 
   function resizeConfetti() {
     if (!confettiCanvas) return;
@@ -618,20 +810,31 @@
 
   function launchConfetti() {
     if (!confettiCanvas || !confettiCtx) return;
+    stopConfetti();
     resizeConfetti();
     confettiParticles = [];
-    var colors = ['#D4A84B', '#F0D068', '#C49A3C', '#FFF3D6', '#FFFFFF', '#81C784'];
+    confettiStartTime = Date.now();
 
-    for (var i = 0; i < 90; i++) {
+    var colors = ['#D4A84B', '#F0D068', '#C49A3C', '#FFF3D6', '#FFFFFF', '#81C784'];
+    var originX = window.innerWidth * 0.5;
+    // Launch from checkmark area, bursting outwards to sides so particles do not cover the title
+    var originY = window.innerHeight * 0.24;
+
+    for (var i = 0; i < 75; i++) {
+      var angle = (Math.random() * Math.PI) - (Math.PI * 0.5);
+      var speed = Math.random() * 10 + 5;
+      var vx = Math.cos(angle) * speed * (Math.random() > 0.5 ? 1.3 : -1.3);
+      var vy = -Math.abs(Math.sin(angle) * speed) - 2.5;
+
       confettiParticles.push({
-        x: window.innerWidth * 0.5 + (Math.random() - 0.5) * 200,
-        y: window.innerHeight * 0.35 + (Math.random() - 0.5) * 80,
-        vx: (Math.random() - 0.5) * 14,
-        vy: (Math.random() - 1.2) * 12,
-        size: Math.random() * 8 + 4,
+        x: originX + (Math.random() - 0.5) * 60,
+        y: originY + (Math.random() - 0.5) * 30,
+        vx: vx,
+        vy: vy,
+        size: Math.random() * 7 + 4,
         color: colors[Math.floor(Math.random() * colors.length)],
         rotation: Math.random() * 360,
-        rotSpeed: (Math.random() - 0.5) * 10,
+        rotSpeed: (Math.random() - 0.5) * 12,
         opacity: 1
       });
     }
@@ -641,47 +844,62 @@
 
     setTimeout(function () {
       stopConfetti();
-    }, 4500);
+    }, CONFETTI_DURATION_MS);
   }
 
   function animateConfetti() {
     if (!confettiRunning || !confettiCtx) return;
     confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
 
+    var elapsed = Date.now() - confettiStartTime;
+    if (elapsed >= CONFETTI_DURATION_MS) {
+      stopConfetti();
+      return;
+    }
+
+    // Global fade factor: particles stay vivid for ~1.2s then fade swiftly to 0 by 2.3s
+    var globalFade = 1;
+    if (elapsed > 1200) {
+      globalFade = Math.max(0, 1 - (elapsed - 1200) / (CONFETTI_DURATION_MS - 1200));
+    }
+
     confettiParticles.forEach(function (p) {
       p.x += p.vx;
       p.y += p.vy;
-      p.vy += 0.35; // Gravity
-      p.vx *= 0.98; // Air resistance
+      p.vy += 0.32; // Gravity
+      p.vx *= 0.96; // Air resistance
       p.rotation += p.rotSpeed;
-      p.opacity -= 0.005;
 
-      if (p.opacity > 0) {
+      var currentAlpha = p.opacity * globalFade;
+
+      if (currentAlpha > 0.01) {
         confettiCtx.save();
         confettiCtx.translate(p.x, p.y);
         confettiCtx.rotate((p.rotation * Math.PI) / 180);
-        confettiCtx.globalAlpha = Math.max(p.opacity, 0);
+        confettiCtx.globalAlpha = Math.max(currentAlpha, 0);
         confettiCtx.fillStyle = p.color;
-        confettiCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 1.4);
+        confettiCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 1.35);
         confettiCtx.restore();
       }
     });
 
     confettiParticles = confettiParticles.filter(function (p) {
-      return p.y < window.innerHeight && p.opacity > 0;
+      return p.y < window.innerHeight + 40 && globalFade > 0;
     });
 
-    if (confettiParticles.length > 0) {
+    if (confettiParticles.length > 0 && confettiRunning && globalFade > 0) {
       confettiAnimId = requestAnimationFrame(animateConfetti);
     } else {
-      confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
-      confettiRunning = false;
+      stopConfetti();
     }
   }
 
   function stopConfetti() {
     confettiRunning = false;
-    if (confettiAnimId) cancelAnimationFrame(confettiAnimId);
+    if (confettiAnimId) {
+      cancelAnimationFrame(confettiAnimId);
+      confettiAnimId = null;
+    }
     if (confettiCtx && confettiCanvas) {
       confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
     }

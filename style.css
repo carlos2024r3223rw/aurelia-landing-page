@@ -1932,6 +1932,82 @@ input { font-family: var(--font-body); }
   gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+
+/* Outline & Secondary Buttons for Checkout */
+.btn--outline {
+  background: rgba(212, 168, 75, 0.08);
+  color: #F5E6BE;
+  border: 1.5px solid rgba(212, 168, 75, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-decoration: none;
+}
+.btn--outline:hover {
+  background: rgba(212, 168, 75, 0.2);
+  border-color: #F0D068;
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(212, 168, 75, 0.28);
+  transform: translateY(-2px);
+}
+.btn--outline:active {
+  transform: translateY(0);
+}
+.btn--outline.is-downloaded {
+  background: rgba(76, 175, 80, 0.22);
+  border-color: #81C784;
+  color: #C8E6C9;
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+}
+
+.btn--outline-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: #C5BCB3;
+  border: 1px solid rgba(212, 168, 75, 0.25);
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+.btn--outline-secondary:hover {
+  background: rgba(212, 168, 75, 0.12);
+  color: #FFFFFF;
+  border-color: rgba(212, 168, 75, 0.5);
+  transform: translateY(-2px);
+}
+.btn--outline-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.btn--outline:hover .btn-icon,
+.btn--outline-secondary:hover .btn-icon {
+  transform: translateY(-1px);
 }
 
 /* Confetti Canvas */
@@ -1939,7 +2015,7 @@ input { font-family: var(--font-body); }
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 600;
+  z-index: 550;
   width: 100vw;
   height: 100vh;
 }

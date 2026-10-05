@@ -152,6 +152,7 @@ const translations = {
     "chk-rcpt-status": "Estado del envío",
     "chk-rcpt-prep": "En preparación (Entrega: 24-48 hrs)",
     "chk-btn-download": "Descargar Comprobante (.txt)",
+    "chk-btn-print": "Imprimir / Guardar PDF",
     "chk-btn-finish": "Volver a la tienda"
   },
   "en": {
@@ -307,6 +308,7 @@ const translations = {
     "chk-rcpt-status": "Shipping Status",
     "chk-rcpt-prep": "Preparing package (Delivery: 24-48 hrs)",
     "chk-btn-download": "Download Receipt (.txt)",
+    "chk-btn-print": "Print / Save PDF",
     "chk-btn-finish": "Back to store"
   }
 };
