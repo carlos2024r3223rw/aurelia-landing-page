@@ -15,7 +15,6 @@
 <!-- ========== BARRA DE URGENCIA ========== -->
 <div class="urgency-bar" id="urgencyBar">
   <div class="urgency-bar__inner">
-    <span class="urgency-bar__icon">🔥</span>
     <span data-i18n="urgency-text-1">OFERTA FLASH — <strong>20% OFF</strong> termina en </span>
     <span class="countdown" id="countdown">02:59:47</span>
     <span data-i18n="urgency-text-2"> — Código: <strong>AURELIA20</strong></span>
@@ -358,7 +357,7 @@
         <li data-i18n="buy-inc-4">✓ Guía digital: "Tu ritual dorado"</li>
       </ul>
       <a href="#" class="btn btn--cta btn--xl btn--pulse" id="mainBuyBtn">
-        <span class="btn__text" data-i18n="buy-btn">🛒 COMPRAR AHORA — $68.80</span>
+        <span class="btn__text" data-i18n="buy-btn">COMPRAR AHORA — $68.80</span>
         <span class="btn__sub" data-i18n="buy-btn-sub">Pago seguro con tarjeta, PayPal o transferencia</span>
       </a>
       <div class="buy-card__trust">
@@ -376,7 +375,7 @@
             <svg viewBox="0 0 48 32" width="42" height="28"><rect width="48" height="32" rx="4" fill="#2D6B4A"/><text x="24" y="20" text-anchor="middle" fill="#fff" font-family="Inter" font-size="8" font-weight="500">TRANSFER</text></svg>
           </span>
         </div>
-        <p class="buy-card__guarantee" data-i18n="buy-sec">🔒 Transacción 100% segura · SSL encriptado</p>
+        <p class="buy-card__guarantee" data-i18n="buy-sec">Transacción 100% segura · SSL encriptado</p>
       </div>
     </div>
   </div>
@@ -517,10 +516,313 @@
 <!-- ========== STICKY CTA MÓVIL ========== -->
 <div class="sticky-cta" id="stickyCta">
   <a href="#comprar" class="btn btn--cta btn--sticky" id="stickyBuyBtn">
-    <span data-i18n="sticky-btn">🛒 COMPRAR — $68.80</span>
+    <span data-i18n="sticky-btn">COMPRAR — $68.80</span>
     <span class="btn__sub-sticky" data-i18n="sticky-sub">Envío gratis · 20% OFF</span>
   </a>
 </div>
+
+<!-- ========== PASARELA DE PAGO FICTICIA (CHECKOUT MODAL) ========== -->
+<div class="checkout-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="checkout-modal__overlay" id="checkoutOverlay"></div>
+  <div class="checkout-modal__container">
+    <button class="checkout-modal__close" id="checkoutClose" aria-label="Cerrar pasarela de pago">&times;</button>
+    
+    <!-- STEP 1: FORMULARIO DE CHECKOUT -->
+    <div class="checkout-step checkout-step--active" id="checkoutStepForm">
+      <div class="checkout-header">
+        <div class="checkout-header__brand">
+          <div>
+            <h3 class="checkout-header__title" data-i18n="chk-header-title">AURELIA CHECKOUT</h3>
+            <span class="checkout-header__badge" data-i18n="chk-header-badge">Pasarela Segura · 256-bit SSL (Modo Demo)</span>
+          </div>
+        </div>
+        <button type="button" class="btn-demo-autofill" id="demoAutofillBtn">
+          <span data-i18n="chk-btn-demo">Llenar datos de prueba</span>
+        </button>
+      </div>
+
+      <div class="checkout-grid">
+        <!-- COLUMNA IZQUIERDA: RESUMEN DE LA ORDEN -->
+        <div class="checkout-summary">
+          <h4 class="checkout-section-title" data-i18n="chk-summary-title">Resumen de tu compra</h4>
+          <div class="checkout-product">
+            <div class="checkout-product__img">
+              <svg viewBox="0 0 100 190" width="46" height="88" aria-hidden="true">
+                <defs>
+                  <linearGradient id="modalBottleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#F5E6C8"/>
+                    <stop offset="50%" stop-color="#E3C07C"/>
+                    <stop offset="100%" stop-color="#C9A15A"/>
+                  </linearGradient>
+                  <linearGradient id="modalCapGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#F0D48A"/>
+                    <stop offset="100%" stop-color="#C9A15A"/>
+                  </linearGradient>
+                </defs>
+                <rect x="42" y="10" width="16" height="30" rx="3" fill="url(#modalCapGrad)"/>
+                <path d="M35,42 Q30,55 28,70 L28,155 Q28,170 38,175 L62,175 Q72,170 72,155 L72,70 Q70,55 65,42 Z" fill="url(#modalBottleGrad)" stroke="#C9A15A" stroke-width="1.2"/>
+                <rect x="34" y="95" width="32" height="46" rx="3" fill="rgba(20,15,10,0.85)"/>
+                <text x="50" y="112" text-anchor="middle" fill="#E3C07C" font-family="Playfair Display" font-size="6.5" font-weight="600">AURELIA</text>
+                <text x="50" y="123" text-anchor="middle" fill="#C9BCA6" font-family="Inter" font-size="4.2" letter-spacing="0.5">24K SÉRUM</text>
+                <circle cx="45" cy="85" r="1.5" fill="#F5D78E"/>
+                <circle cx="55" cy="142" r="1.3" fill="#F5D78E"/>
+              </svg>
+            </div>
+            <div class="checkout-product__info">
+              <div class="checkout-product__name" data-i18n="chk-prod-name">Sérum Aurelia 24K</div>
+              <div class="checkout-product__sub" data-i18n="chk-prod-sub">Frasco 30ml · Edición Limitada</div>
+              <div class="checkout-product__qty" data-i18n="chk-prod-qty">Cantidad: <strong>1</strong></div>
+            </div>
+            <div class="checkout-product__price">$68.80</div>
+          </div>
+
+          <div class="checkout-breakdown">
+            <div class="checkout-breakdown__row">
+              <span data-i18n="chk-price-reg">Precio regular</span>
+              <span class="strikethrough">$86.00</span>
+            </div>
+            <div class="checkout-breakdown__row checkout-breakdown__discount">
+              <span data-i18n="chk-price-disc">Descuento Flash (20% OFF)</span>
+              <span>-$17.20</span>
+            </div>
+            <div class="checkout-breakdown__row">
+              <span data-i18n="chk-price-ship">Envío (Todo El Salvador)</span>
+              <span class="free-text" data-i18n="chk-price-free">GRATIS</span>
+            </div>
+            <div class="checkout-breakdown__divider"></div>
+            <div class="checkout-breakdown__row checkout-breakdown__total">
+              <span data-i18n="chk-price-total">Total a pagar</span>
+              <span class="total-amount">$68.80 USD</span>
+            </div>
+          </div>
+
+          <div class="checkout-coupon">
+            <span class="checkout-coupon__tag" data-i18n="chk-coupon-tag">CUPÓN: AURELIA20</span>
+            <span class="checkout-coupon__desc" data-i18n="chk-coupon-desc">Cupón de 20% aplicado automáticamente</span>
+          </div>
+
+          <div class="checkout-guarantee-box">
+            <div class="guarantee-item">Garantía de satisfacción de 30 días</div>
+            <div class="guarantee-item">Entrega rápida de 24 a 48 horas</div>
+            <div class="guarantee-item">Certificación Cruelty-Free & Vegano</div>
+          </div>
+        </div>
+
+        <!-- COLUMNA DERECHA: FORMULARIO DE ENVÍO Y PAGO -->
+        <div class="checkout-form-container">
+          <form id="fakeCheckoutForm" novalidate>
+            <!-- DATOS DE ENVÍO -->
+            <div class="checkout-form-section">
+              <h4 class="checkout-section-title" data-i18n="chk-sec-ship">1. Datos de Envío</h4>
+              <div class="form-row">
+                <div class="form-group form-group--full">
+                  <label for="custName" data-i18n="chk-lbl-name">Nombre completo</label>
+                  <input type="text" id="custName" placeholder="Ej: Sofía Henríquez" required>
+                </div>
+              </div>
+              <div class="form-row form-row--2col">
+                <div class="form-group">
+                  <label for="custEmail" data-i18n="chk-lbl-email">Correo electrónico</label>
+                  <input type="email" id="custEmail" placeholder="sofia@ejemplo.com" required>
+                </div>
+                <div class="form-group">
+                  <label for="custPhone" data-i18n="chk-lbl-phone">Teléfono (WhatsApp)</label>
+                  <input type="tel" id="custPhone" placeholder="+503 7123-4567" required>
+                </div>
+              </div>
+              <div class="form-row form-row--2col">
+                <div class="form-group">
+                  <label for="custAddress" data-i18n="chk-lbl-address">Dirección de entrega</label>
+                  <input type="text" id="custAddress" placeholder="Col. Escalón, Calle El Mirador #142" required>
+                </div>
+                <div class="form-group">
+                  <label for="custDept" data-i18n="chk-lbl-dept">Departamento</label>
+                  <select id="custDept">
+                    <option value="San Salvador" selected>San Salvador</option>
+                    <option value="La Libertad">La Libertad</option>
+                    <option value="Santa Ana">Santa Ana</option>
+                    <option value="San Miguel">San Miguel</option>
+                    <option value="Sonsonate">Sonsonate</option>
+                    <option value="Otro departamento">Otro departamento (Envío gratis)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- MÉTODO DE PAGO -->
+            <div class="checkout-form-section">
+              <h4 class="checkout-section-title" data-i18n="chk-sec-pay">2. Método de Pago</h4>
+              <div class="payment-tabs" role="tablist">
+                <button type="button" class="payment-tab payment-tab--active" data-tab="card" role="tab" aria-selected="true" data-i18n="chk-tab-card">
+                  Tarjeta de Crédito / Débito
+                </button>
+                <button type="button" class="payment-tab" data-tab="paypal" role="tab" aria-selected="false" data-i18n="chk-tab-paypal">
+                  PayPal
+                </button>
+                <button type="button" class="payment-tab" data-tab="transfer" role="tab" aria-selected="false" data-i18n="chk-tab-transfer">
+                  Transferencia / Chivo
+                </button>
+              </div>
+
+              <!-- Pestaña Tarjeta -->
+              <div class="tab-panel tab-panel--active" id="tabCard">
+                <!-- Virtual Card Luxury Preview -->
+                <div class="virtual-card" id="virtualCard" aria-hidden="true">
+                  <div class="virtual-card__glow"></div>
+                  <div class="virtual-card__top">
+                    <div class="virtual-card__chip">
+                      <div class="chip-lines"></div>
+                    </div>
+                    <span class="virtual-card__brand" id="cardBrandLogo">VISA</span>
+                  </div>
+                  <div class="virtual-card__number" id="previewCardNum">•••• •••• •••• 4242</div>
+                  <div class="virtual-card__bottom">
+                    <div class="virtual-card__holder">
+                      <span class="card-label" data-i18n="chk-card-holder">TITULAR</span>
+                      <span class="card-val" id="previewCardName">SOFÍA HENRÍQUEZ</span>
+                    </div>
+                    <div class="virtual-card__expiry">
+                      <span class="card-label" data-i18n="chk-card-expiry">EXPIRA</span>
+                      <span class="card-val" id="previewCardExp">12/28</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group form-group--full">
+                    <label for="cardNumber" data-i18n="chk-lbl-cardnum">Número de tarjeta</label>
+                    <div class="input-with-icon">
+                      <input type="text" id="cardNumber" placeholder="4242 4242 4242 4242" maxlength="19" required>
+                      <span class="input-card-icon" id="inputCardIcon"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row form-row--2col">
+                  <div class="form-group">
+                    <label for="cardExp" data-i18n="chk-lbl-cardexp">Vencimiento (MM/AA)</label>
+                    <input type="text" id="cardExp" placeholder="12/28" maxlength="5" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="cardCvv" data-i18n="chk-lbl-cardcvv">Código CVC/CVV</label>
+                    <input type="password" id="cardCvv" placeholder="123" maxlength="4" required>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pestaña PayPal -->
+              <div class="tab-panel" id="tabPaypal">
+                <div class="payment-alt-box">
+                  <div class="paypal-badge">PayPal Express Checkout</div>
+                  <p><span data-i18n="chk-paypal-desc">Al confirmar, se simulará una transacción inmediata con la cuenta demo</span> <strong>aurelia.buyer@demo.com</strong>.</p>
+                  <div class="paypal-pill" data-i18n="chk-paypal-status">Cuenta demo vinculada y verificada</div>
+                </div>
+              </div>
+
+              <!-- Pestaña Transferencia -->
+              <div class="tab-panel" id="tabTransfer">
+                <div class="payment-alt-box">
+                  <div class="bank-info-item"><strong>Banco Agrícola / BAC:</strong> Cta Cte #120-49281-0</div>
+                  <div class="bank-info-item"><strong>Chivo Wallet / BTC:</strong> @aurelia24k</div>
+                  <p class="bank-note" data-i18n="chk-transfer-note">En esta demo, el pago se confirmará automáticamente al dar clic en el botón.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- BOTÓN PAGAR -->
+            <button type="submit" class="btn btn--cta btn--pay" id="paySubmitBtn">
+              <span class="btn-pay-text" data-i18n="chk-btn-pay">PAGAR $68.80 USD</span>
+              <span class="btn-pay-sub" data-i18n="chk-btn-pay-sub">Simulación 100% segura · Clic para pagar</span>
+            </button>
+            <div class="checkout-footer-note">
+              <span data-i18n="chk-note-secure">Cifrado SSL 256 bits · No se cobrará dinero real</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: PROCESANDO PAGO (ANIMACIÓN) -->
+    <div class="checkout-step" id="checkoutStepProcessing">
+      <div class="processing-content">
+        <div class="processing-spinner-box">
+          <div class="luxury-spinner"></div>
+        </div>
+        <h3 class="processing-title" data-i18n="chk-proc-title">Procesando pago seguro...</h3>
+        <p class="processing-status" id="processingStatusText" data-i18n="chk-proc-status">Conectando con la red bancaria segura...</p>
+        <div class="processing-bar-wrap">
+          <div class="processing-bar" id="processingBar"></div>
+        </div>
+        <div class="processing-security-badges">
+          <span data-i18n="chk-proc-b1">Encriptación SHA-256</span>
+          <span data-i18n="chk-proc-b2">Autorización 3D Secure</span>
+          <span data-i18n="chk-proc-b3">Verificado por Visa/Mastercard</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: CHECKOUT EXITOSO / RECIBO DE COMPRA -->
+    <div class="checkout-step" id="checkoutStepSuccess">
+      <div class="success-content">
+        <div class="success-badge-anim">
+          <svg class="checkmark-circle" viewBox="0 0 52 52">
+            <circle class="checkmark-circle-bg" cx="26" cy="26" r="24" fill="none"/>
+            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+        </div>
+        <span class="success-tag" data-i18n="chk-succ-tag">PAGO Y CHECK-OUT COMPLETADO</span>
+        <h3 class="success-title"><span data-i18n="chk-succ-title-prefix">Gracias por tu compra, </span><span id="successCustomerName">Sofía</span>!</h3>
+        <p class="success-desc" data-i18n="chk-succ-desc">Tu pedido ha sido procesado exitosamente y estamos preparando tu frasco de Sérum Aurelia 24K.</p>
+
+        <div class="receipt-card">
+          <div class="receipt-header">
+            <div>
+              <span class="receipt-num-label" data-i18n="chk-rcpt-order">Número de Pedido</span>
+              <strong class="receipt-order-id" id="receiptOrderId">#AUR-849201</strong>
+            </div>
+            <div class="receipt-date-wrap">
+              <span class="receipt-date-label" data-i18n="chk-rcpt-date">Fecha</span>
+              <span class="receipt-date-val" id="receiptDate">Hoy</span>
+            </div>
+          </div>
+
+          <div class="receipt-details">
+            <div class="receipt-row">
+              <span data-i18n="chk-rcpt-prod">Producto</span>
+              <strong>Sérum Aurelia 24K (30ml)</strong>
+            </div>
+            <div class="receipt-row">
+              <span data-i18n="chk-rcpt-method">Método utilizado</span>
+              <strong id="receiptPaymentMethod">Tarjeta Visa (•••• 4242)</strong>
+            </div>
+            <div class="receipt-row">
+              <span data-i18n="chk-rcpt-total">Total abonado</span>
+              <strong class="receipt-total">$68.80 USD</strong>
+            </div>
+            <div class="receipt-row">
+              <span data-i18n="chk-rcpt-addr">Dirección de envío</span>
+              <strong id="receiptAddress">San Salvador, El Salvador</strong>
+            </div>
+            <div class="receipt-row">
+              <span data-i18n="chk-rcpt-status">Estado del envío</span>
+              <span class="status-pill status-pill--success" data-i18n="chk-rcpt-prep">En preparación (Entrega: 24-48 hrs)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="success-actions">
+          <button type="button" class="btn btn--outline" id="downloadReceiptBtn" data-i18n="chk-btn-download">
+            Descargar Comprobante (.txt)
+          </button>
+          <button type="button" class="btn btn--cta" id="successFinishBtn" data-i18n="chk-btn-finish">
+            Volver a la tienda
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<canvas id="confettiCanvas" class="confetti-canvas"></canvas>
 
 <script src="translations.js"></script>
 <script src="script.js"></script>
